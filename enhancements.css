@@ -1,2 +1,51 @@
 /* Imtithal demo enhancement layer */
 :root{--brand:#126c59;--ink:#18372f;--line:#e0e9e4}body{background:#f3f7f5}.side{background:linear-gradient(180deg,#0c3e36,#115548);box-shadow:3px 0 22px #0a332014}.logo{letter-spacing:-1px}.top{position:sticky;top:0;z-index:5;box-shadow:0 2px 14px #18372f0a}.card{box-shadow:0 6px 24px #163f2b0a}.card:hover{border-color:#c8dcd0}.btn{transition:filter .15s,transform .15s}.btn:hover{filter:brightness(.96)}.btn:active{transform:scale(.98)}.enh-hero{background:linear-gradient(115deg,#124e42,#207b64);color:#fff;border-radius:18px;padding:26px;display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:20px}.enh-hero h2{margin:0 0 9px;font-size:25px}.enh-hero p{margin:0;opacity:.86;line-height:1.8}.enh-tag{border:1px solid #ffffff65;border-radius:30px;padding:7px 12px;white-space:nowrap;font-size:12px}.enh-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.enh-number{font-size:28px;font-weight:800;color:var(--brand);margin:10px 0}.enh-field{display:flex;flex-direction:column;gap:7px;margin:12px 0}.enh-field input,.enh-field select,.enh-field textarea{width:100%}.enh-badge{display:inline-block;border-radius:20px;padding:5px 10px;font-size:12px;background:#e5f2ec;color:#14634c}.enh-badge.high{background:#fde6e3;color:#a3332b}.enh-badge.medium{background:#fff1d5;color:#93611a}.enh-badge.low{background:#e5f2ec;color:#14634c}.enh-actions{display:flex;flex-wrap:wrap;gap:8px}.enh-table{overflow:auto}.enh-table table{min-width:680px}.enh-empty{padding:25px;text-align:center;color:#71877c}.enh-kpi{border-top:4px solid #2b9377}.enh-help{font-size:12px;color:#688074;line-height:1.8}.enh-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}.enh-toolbar input{flex:1;min-width:180px}.enh-mini{font-size:12px;color:#6e8378}.enh-demo-flag{font-size:11px;background:#fff3d8;color:#7c5a18;border-radius:8px;padding:6px 10px;display:inline-block}.enh-print-header{display:none}@media(max-width:680px){.enh-hero{display:block;padding:20px}.enh-hero h2{font-size:20px}.enh-tag{display:inline-block;margin-top:14px}.enh-stats{grid-template-columns:1fr}.enh-actions .btn{flex:1}.enh-toolbar input{width:100%}}@media print{.side,.top,.enh-actions,.enh-toolbar,.notice,.footer{display:none!important}.enh-print-header{display:block}.content{padding:0}.card{box-shadow:none}.panel{display:none!important}.panel.active{display:block!important}}
+/* Imtithal AI Dark — unified responsive theme (demo) */
+:root{color-scheme:dark;--brand:#20c8c2;--ink:#e8f1ff;--line:#26354e;font-family:Tahoma,Arial,sans-serif!important;color:#e8f1ff!important;background:#080f20!important}
+html,body{background:#080f20!important;color:#e8f1ff!important}
+body{background:radial-gradient(ellipse at 75% 0%,#162b53 0%,#0b1428 44%,#080f20 100%) fixed!important}
+.side{background:linear-gradient(180deg,#0b1730,#081122)!important;border-inline-end:1px solid #253453;box-shadow:inset -1px 0 #1b2d48!important}
+.logo{color:#f1fbff!important}.sub{color:#9cb5d3!important}
+.nav{color:#afc2de!important}.nav.active,.nav:hover{background:linear-gradient(90deg,#154a76,#203879)!important;color:white!important}
+.main{background:transparent!important}
+.top{background:#0d192ceF!important;border-bottom:1px solid #263b58!important;backdrop-filter:blur(14px)}
+.top h1,.card h3,.enh-hero h2,.modal h2{color:#f3f8ff!important}
+.top small,.muted,.footer,.enh-help,.enh-mini{color:#a4b5d0!important}
+.content{max-width:1550px!important}
+.card,.modal,.enh-card{background:linear-gradient(150deg,#13223b,#101b30)!important;color:#e7f0ff!important;border:1px solid #283c59!important;box-shadow:0 10px 35px #0003!important}
+.card .card{background:#132742!important}
+.metric{color:#f1fbff!important;font-variant-numeric:tabular-nums}
+.notice{background:#112e40!important;border:1px solid #1d6878!important;color:#c9f6fa!important}
+.btn{background:linear-gradient(115deg,#176cc1,#5857d9)!important;color:white!important;border:1px solid #5e80da55!important;box-shadow:0 4px 16px #174ea630}
+.btn.alt{background:#153451!important;color:#bce9ff!important;border-color:#27577c!important}
+.btn.ghost{background:#14243a!important;color:#cfe3fa!important;border:1px solid #355071!important}
+button:hover{filter:brightness(1.12)}
+input,select,textarea,.toolbar input,.toolbar select{background:#0b172b!important;border:1px solid #334968!important;color:#e9f2ff!important}
+input::placeholder,textarea::placeholder{color:#8da3bf!important}
+option{background:#0b172b;color:#e9f2ff}
+th{color:#a3bbda!important}td,th{border-bottom:1px solid #293b55!important}tr:hover td{background:#182842}
+.bar{background:#273750!important}.fill{background:linear-gradient(90deg,#21b9b5,#5e8dff)!important}
+.ring{background:conic-gradient(#22c7d4 var(--pct),#263750 0)!important}.ring span{background:#12223a!important;color:#f1fbff!important}
+.pill{background:#1a3850!important;color:#b9dfff!important}.pill.good{background:#123e3e!important;color:#7cebd0!important}.pill.bad{background:#4a2638!important;color:#ffb3c2!important}.pill.mid{background:#483a24!important;color:#ffdc95!important}.pill.neutral{background:#283448!important;color:#c4d1e6!important}
+.enh-hero{background:linear-gradient(110deg,#102f50,#172e62)!important;color:#eaf7ff!important;border:1px solid #315b88!important}
+.enh-tag{background:#193e61!important;color:#c6f5ff!important}
+.modalbg{background:#020715cf!important}
+.catalog-detail,.catalog-detail summary,details{color:#e7f0ff}
+#libraries details{background:#122039!important;border-color:#344963!important}
+#libraries details summary{color:#f0f6ff!important}
+#libraries a{color:#78d9ff!important}
+:focus-visible{outline:2px solid #42d6f6!important;outline-offset:3px}
+@media(max-width:680px){
+.top{position:relative!important}
+.side{border-bottom:1px solid #263b58!important;border-inline-end:0!important}
+#nav{scroll-snap-type:x proximity}
+#nav .nav{scroll-snap-align:start;background:#132641!important;border:1px solid #304c70!important}
+#nav .nav.active{background:#2354a0!important}
+.content{padding:12px!important}
+.card{border-radius:15px!important}
+.grid,.frameworks,.twocol{grid-template-columns:minmax(0,1fr)!important}
+.top>.actions{overflow-x:auto;flex-wrap:nowrap!important}
+.top>.actions .btn{flex:0 0 auto}
+.modal{padding:17px!important}
+}
+@media print{html,body,.main,.card{background:white!important;color:black!important}.card{border:1px solid #ddd!important;box-shadow:none!important}h1,h2,h3,.metric,.muted,th,td{color:black!important}}
