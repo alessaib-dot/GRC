@@ -101,6 +101,8 @@ function applyLanguage(){
  });
 }
 function toggleLanguage(){uiLang=uiLang==='ar'?'en':'ar';localStorage.setItem('imtithal_language',uiLang);applyLanguage();}
-const langObserver=new MutationObserver(()=>{ if(!window.__imtithalLanguageUpdating){window.__imtithalLanguageUpdating=true;try{applyLanguage()}finally{window.__imtithalLanguageUpdating=false}} });
-try{nav();render();applyLanguage();langObserver.observe(document.body,{childList:true,subtree:true})}catch(error){console.error('Imtithal initialization:',error);document.getElementById('nav').innerHTML=Object.entries(names).map(([k,v])=>'<button class="nav" onclick="go(\''+k+'\')">'+v+'</button>').join('');document.getElementById('dashboard').innerHTML='<div class="card"><h2>مرحبًا بك في امتثال</h2><p>حدث خطأ في تحميل بيانات العرض. يمكنك استعادة النسخة التجريبية من الزر التالي.</p><button class="btn" onclick="localStorage.removeItem(\'imtithal_demo_v1\');location.reload()">استعادة البيانات التجريبية</button></div>';}
+// Translate after navigation without observing every DOM mutation.
+const originalGo=go;
+go=function(k){originalGo(k);applyLanguage()};
+try{nav();render();applyLanguage()}catch(error){console.error('Imtithal initialization',error);document.getElementById('dashboard').textContent='تعذر تحميل لوحة التحكم. يرجى تحديث الصفحة.'}
 </script></body></html>
