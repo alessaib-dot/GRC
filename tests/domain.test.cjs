@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict');const d=require('../src/domain.js');
+assert.equal(d.MODULES.find(x=>x.id==='governance').name,'الحوكمة');
+assert.ok(d.MODULES.find(x=>x.id==='governance').scope.includes('الذكاء الاصطناعي'));
+assert.deepEqual(d.createOrganization({id:'a',name:' مؤسسة ',sectors:['الصحي','الصحي','التقنية']}).sectors,['الصحي','التقنية']);
+assert.throws(()=>d.createOrganization({name:''}));
+assert.equal(d.createWorkspace('tenant-a').organizationId,'tenant-a');
+assert.throws(()=>d.createWorkspace(''));
+const catalog=[{id:'a',sectors:['الصحي']},{id:'a',sectors:['الصحي']},{id:'b',sectors:['التقنية']},{id:'c',sectors:['المالي']}];
+const matched=d.matchSuggestedObligations(['الصحي','التقنية'],catalog);
+assert.deepEqual(matched.map(x=>x.id),['a','b']);
+assert.ok(matched.every(x=>x.applicability==='pending_review'&&x.assessment==='unassessed'));
+assert.deepEqual(d.summarizeApplicability(matched),{total:2,pending:2,applicable:0,notApplicable:0});
+assert.equal(d.governanceCategory('حوكمة البيانات').type,'general');
+console.log('Imtithal domain tests passed');
