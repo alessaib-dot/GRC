@@ -105,4 +105,4 @@ function toggleLanguage(){uiLang=uiLang==='ar'?'en':'ar';localStorage.setItem('i
 const originalGo=go;
 go=function(k){originalGo(k);applyLanguage()};
 try{nav();render();applyLanguage()}catch(error){console.error('Imtithal initialization',error);document.getElementById('dashboard').textContent='تعذر تحميل لوحة التحكم. يرجى تحديث الصفحة.'}
-</script></body></html>
+</script><script src="regulatory-catalog.js?v=3" defer></script></body></html>
