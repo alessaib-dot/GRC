@@ -22,6 +22,7 @@ function nodes(){
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(links))}catch(e){alert(t('تعذر حفظ الروابط','Could not save links'))}}
 const panel=document.createElement('section');panel.id='relationships';panel.className='panel';panel.innerHTML='<div class="hero"><span class="pill">GRC · ◇</span><h1 id="rel-heading"></h1><p id="rel-desc"></p></div><div class="card section"><h3 id="rel-add-title"></h3><form id="rel-form" class="section" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px"><label class="muted" id="rel-source-label"><select id="rel-source" required style="display:block;width:100%;margin-top:8px;padding:11px;background:#132c3e;color:white;border:1px solid #416071;border-radius:9px"></select></label><label class="muted" id="rel-target-label"><select id="rel-target" required style="display:block;width:100%;margin-top:8px;padding:11px;background:#132c3e;color:white;border:1px solid #416071;border-radius:9px"></select></label><button class="btn" type="submit" id="rel-add"></button></form><p class="muted" id="rel-hint"></p></div><div class="card section"><h3 id="rel-list-title"></h3><div id="rel-list"></div></div>';
 document.querySelector('.main').insertBefore(panel,document.querySelector('.main .footer'));
+for(const id of ['rel-source-label','rel-target-label']){const el=document.getElementById(id);el.insertBefore(document.createTextNode(''),el.firstChild)}
 for(const [root,klass] of [[document.getElementById('desktopNav'),'nav'],[document.getElementById('mobileNav'),'']]){
  const b=document.createElement('button');b.type='button';b.dataset.tab='relationships';b.className=klass;b.addEventListener('click',show);root.appendChild(b)
 }
@@ -32,8 +33,8 @@ function render(){
  document.getElementById('rel-heading').textContent=t('خريطة العلاقات','Relationship Map');
  document.getElementById('rel-desc').textContent=t('اربط السجلات التي راجعتها يدويًا: الخطر والالتزام والضابط والدليل والإجراء. الروابط هنا تجريبية وليست استنتاجات تنظيمية.','Manually link reviewed records: risks, obligations, controls, evidence and actions. These are demo links, not regulatory conclusions.');
  document.getElementById('rel-add-title').textContent=t('إضافة علاقة بين سجلين','Link two records');
- document.getElementById('rel-source-label').firstChild.textContent=t('السجل الأول','Source record');
- document.getElementById('rel-target-label').firstChild.textContent=t('السجل المرتبط','Related record');
+ document.getElementById('rel-source-label').firstChild.nodeValue=t('السجل الأول','Source record');
+ document.getElementById('rel-target-label').firstChild.nodeValue=t('السجل المرتبط','Related record');
  document.getElementById('rel-add').textContent=t('حفظ العلاقة','Save relationship');
  document.getElementById('rel-hint').textContent=t('اختر سجلين مختلفين. أضف السجلات أولًا من الوحدات المناسبة؛ لا ننشئ علاقات تلقائية.','Select two different records. Add records in their modules first; no links are generated automatically.');
  document.getElementById('rel-list-title').textContent=t('العلاقات المسجلة','Recorded links')+' ('+links.length+')';
