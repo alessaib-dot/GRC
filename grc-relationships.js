@@ -9,6 +9,8 @@ let links=load(KEY);if(!Array.isArray(links))links=[];
 function nodes(){
  const mod=load(MODKEY)||{},demo=load('imtithal_demo_v1')||{};
  const all=[];
+ const internal=load('imtithal_grc_policy_controls_v1')||{};
+ for(const [key,ar,en] of [['policy','السياسات','Policies'],['control','الضوابط الداخلية','Internal Controls']])for(const x of (Array.isArray(internal[key])?internal[key]:[]))all.push({key:key+':'+x.id,group:key,label:x.title||'—',groupLabel:t(ar,en)});
  for(const [key,ar,en] of [['governance','الحوكمة','Governance'],['risk','المخاطر','Risks'],['audit','التدقيق','Audit']]){
   const records=Array.isArray(mod[key])?mod[key]:[];
   records.forEach(x=>all.push({key:key+':'+x.id,group:key,label:x.title||'—',groupLabel:t(ar,en)}));
