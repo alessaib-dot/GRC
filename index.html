@@ -101,6 +101,6 @@ function applyLanguage(){
  });
 }
 function toggleLanguage(){uiLang=uiLang==='ar'?'en':'ar';localStorage.setItem('imtithal_language',uiLang);applyLanguage();}
-const langObserver=new MutationObserver(()=>applyLanguage());
+const langObserver=new MutationObserver(()=>{ if(!window.__imtithalLanguageUpdating){window.__imtithalLanguageUpdating=true;try{applyLanguage()}finally{window.__imtithalLanguageUpdating=false}} });
 nav();render();applyLanguage();langObserver.observe(document.body,{childList:true,subtree:true});
-</script><script src="suite-integrated.js?v=1" defer></script><script src="regulatory-catalog.js?v=2" defer></script></body></html>
+</script></body></html>
