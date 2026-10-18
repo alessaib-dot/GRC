@@ -46,9 +46,64 @@ const items=[
 ['ISO37001','ISO 37001 لمكافحة الرشوة','ISO 37001 Anti-Bribery','ISO','المعايير الاختيارية','اختياري'],
 ['COSO','إطار COSO للرقابة الداخلية','COSO Internal Control Framework','COSO','المعايير الاختيارية','اختياري']
 ];
+items.push(
+["HR-WPS","برنامج حماية الأجور","Wage Protection Program","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-CONTRACT","توثيق عقود العمل عبر قوى","Employment Contract Documentation","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-SAUDI","برنامج نطاقات ومتطلبات التوطين","Saudization and Nitaqat","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-WOMEN","ضوابط عمل المرأة","Women Employment Rules","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-DOMESTIC","لائحة العمالة المنزلية","Domestic Workers Regulations","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","قطاعي"],
+["HR-INSURANCE","نظام التأمينات الاجتماعية","Social Insurance Law","المؤسسة العامة للتأمينات الاجتماعية","الموارد البشرية","مشروط"],
+["HR-UNEMP","نظام التأمين ضد التعطل عن العمل (ساند)","SANED Unemployment Insurance","المؤسسة العامة للتأمينات الاجتماعية","الموارد البشرية","مشروط"],
+["HR-TRAIN","متطلبات التدريب والتأهيل المهني","Vocational Training Requirements","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-VISA","نظام الإقامة ومتطلبات تصاريح العمل","Residency and Work Permit Requirements","الجهات المختصة","الموارد البشرية","مشروط"],
+["HR-DISPUTE","إجراءات تسوية الخلافات العمالية","Labor Dispute Settlement Procedures","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-DISABILITY","متطلبات توظيف الأشخاص ذوي الإعاقة","Disability Employment Requirements","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-REMOTE","تنظيم العمل عن بعد","Remote Work Regulation","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-FLEX","تنظيم العمل المرن","Flexible Work Regulation","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-PARTTIME","تنظيم العمل لبعض الوقت","Part-time Work Regulation","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["HR-COMMITTEE","لائحة تنظيم العمل الداخلية","Internal Work Regulations","وزارة الموارد البشرية والتنمية الاجتماعية","الموارد البشرية","مشروط"],
+["CCHI","نظام الضمان الصحي التعاوني","Cooperative Health Insurance Law","مجلس الضمان الصحي","التأمين والصحة","مشروط"],
+["INSURANCE","نظام مراقبة شركات التأمين التعاوني","Cooperative Insurance Companies Control Law","هيئة التأمين","التأمين والصحة","قطاعي"],
+["PUBLIC-PROC","نظام المنافسات والمشتريات الحكومية","Government Tenders and Procurement Law","وزارة المالية","المشتريات والعقود","قطاعي"],
+["PROC-LOCAL","متطلبات المحتوى المحلي في المشتريات الحكومية","Local Content Procurement Requirements","هيئة المحتوى المحلي والمشتريات الحكومية","المشتريات والعقود","قطاعي"],
+["FRANCHISE","نظام الامتياز التجاري","Franchise Law","وزارة التجارة","التجارة والمستهلك","مشروط"],
+["COMPETITION","نظام المنافسة","Competition Law","الهيئة العامة للمنافسة","التجارة والمستهلك","مشروط"],
+["TRADEMARK","نظام العلامات التجارية","Trademarks Law","الهيئة السعودية للملكية الفكرية","الملكية الفكرية","مشروط"],
+["COPYRIGHT","نظام حماية حقوق المؤلف","Copyright Law","الهيئة السعودية للملكية الفكرية","الملكية الفكرية","مشروط"],
+["PATENT","نظام براءات الاختراع والتصميمات","Patents and Designs Law","الهيئة السعودية للملكية الفكرية","الملكية الفكرية","مشروط"],
+["REAL-ESTATE","نظام الوساطة العقارية","Real Estate Brokerage Law","الهيئة العامة للعقار","العقار والإنشاءات","قطاعي"],
+["OFFPLAN","نظام بيع وتأجير مشروعات عقارية على الخارطة","Off-plan Real Estate Projects Law","الهيئة العامة للعقار","العقار والإنشاءات","قطاعي"],
+["BUILDING","كود البناء السعودي","Saudi Building Code","اللجنة الوطنية لكود البناء السعودي","العقار والإنشاءات","مشروط"],
+["MUNICIPAL","اشتراطات التراخيص البلدية","Municipal Licensing Requirements","وزارة البلديات والإسكان","العقار والإنشاءات","مشروط"],
+["TOURISM","نظام السياحة","Tourism Law","وزارة السياحة","السياحة والضيافة","قطاعي"],
+["HOSPITALITY","لوائح مرافق الضيافة السياحية","Tourist Hospitality Regulations","وزارة السياحة","السياحة والضيافة","قطاعي"],
+["TRANSPORT","نظام النقل البري على الطرق","Road Transport Regulations","الهيئة العامة للنقل","النقل واللوجستيات","قطاعي"],
+["AVIATION","نظام الطيران المدني","Civil Aviation Law","الهيئة العامة للطيران المدني","النقل واللوجستيات","قطاعي"],
+["PORTS","أنظمة الموانئ والخدمات البحرية","Ports and Maritime Regulations","الهيئة العامة للموانئ","النقل واللوجستيات","قطاعي"],
+["ENERGY","نظام الكهرباء","Electricity Law","هيئة تنظيم المياه والكهرباء","الطاقة والمرافق","قطاعي"],
+["WATER","أنظمة خدمات المياه","Water Services Regulations","هيئة تنظيم المياه والكهرباء","الطاقة والمرافق","قطاعي"],
+["MINING","نظام الاستثمار التعديني","Mining Investment Law","وزارة الصناعة والثروة المعدنية","الصناعة والتعدين","قطاعي"],
+["INDUSTRY","متطلبات التراخيص الصناعية","Industrial Licensing Requirements","وزارة الصناعة والثروة المعدنية","الصناعة والتعدين","قطاعي"],
+["NONPROFIT","نظام الجمعيات والمؤسسات الأهلية","Associations and Foundations Law","المركز الوطني لتنمية القطاع غير الربحي","القطاع غير الربحي","قطاعي"],
+["CHARITY","قواعد جمع التبرعات","Fundraising Regulations","الجهات المختصة","القطاع غير الربحي","قطاعي"],
+["EDUCATION","لوائح التعليم الأهلي","Private Education Regulations","وزارة التعليم","التعليم","قطاعي"],
+["CAPITAL","نظام السوق المالية","Capital Market Law","هيئة السوق المالية","القطاع المالي","قطاعي"],
+["PAYMENT","نظام المدفوعات وخدماتها","Payments and Payment Services Law","البنك المركزي السعودي","القطاع المالي","قطاعي"],
+["FINTECH","اللوائح التنظيمية لشركات التقنية المالية","Fintech Regulatory Requirements","البنك المركزي السعودي / هيئة السوق المالية","القطاع المالي","قطاعي"],
+["TAX-INCOME","نظام ضريبة الدخل","Income Tax Law","هيئة الزكاة والضريبة والجمارك","الزكاة والضرائب","مشروط"],
+["EXCISE","نظام الضريبة الانتقائية","Excise Tax Law","هيئة الزكاة والضريبة والجمارك","الزكاة والضرائب","مشروط"],
+["CUSTOMS","نظام الجمارك الموحد","Unified Customs Law","هيئة الزكاة والضريبة والجمارك","الزكاة والضرائب","مشروط"],
+["FOREIGN-INVEST","نظام الاستثمار","Investment Law","وزارة الاستثمار","الاستثمار","مشروط"],
+["ARBITRATION","نظام التحكيم","Arbitration Law","الجهات المختصة","القضاء والعقود","مشروط"],
+["EVIDENCE-LAW","نظام الإثبات","Evidence Law","وزارة العدل","القضاء والعقود","مشروط"],
+["CIVIL","نظام المعاملات المدنية","Civil Transactions Law","وزارة العدل","القضاء والعقود","عام"],
+["PERSONAL-STATUS","نظام الأحوال الشخصية","Personal Status Law","وزارة العدل","القضاء والعقود","مشروط"],
+["COMMERCIAL-COURTS","نظام المحاكم التجارية","Commercial Courts Law","وزارة العدل","القضاء والعقود","مشروط"]
+);
+const guidance={"LABOR":["عقود العمل وتوثيقها","ساعات العمل والراحة والعمل الإضافي","الأجور ومواعيد دفعها","الإجازات والاستحقاقات","انتهاء العلاقة التعاقدية ومكافأة نهاية الخدمة","سجلات الموظفين والتظلمات","السلامة والصحة المهنية"],"PDPL":["تحديد أغراض المعالجة والأساس النظامي","إشعارات الخصوصية وحقوق أصحاب البيانات","الاحتفاظ والإتلاف","إدارة الحوادث والإبلاغ","التعاقد مع المعالجين","نقل البيانات خارج المملكة"],"VAT":["التسجيل الضريبي عند الانطباق","الفواتير والسجلات","الإقرارات والمواعيد","الاحتفاظ بالمستندات"],"COMPANIES":["السجل التجاري والوثائق النظامية","صلاحيات الإدارة والحوكمة","محاضر القرارات","الإفصاحات والالتزامات ذات الصلة"],"NCA-ECC":["الحوكمة السيبرانية","إدارة الأصول","إدارة الهوية والوصول","حماية الأنظمة والشبكات","الاستجابة للحوادث","استمرارية الأعمال"]};
 const cats=['الكل',...new Set(items.map(x=>x[4]))];
 let cat='الكل',q='';
 const origRender=render;render=function(){origRender();drawCatalog()};
-function drawCatalog(){const root=document.getElementById('libraries');if(!root)return;const matches=items.filter(x=>(cat==='الكل'||x[4]===cat)&&(!q||x.join(' ').toLowerCase().includes(q.toLowerCase())));root.innerHTML='<div class="enh-hero"><div><h2>المكتبة التنظيمية السعودية</h2><p>فهرس استكشافي للأنظمة واللوائح والضوابط والمعايير. انطباق المتطلبات يتحدد وفق نشاط المنشأة والجهة المشرفة.</p></div><span class="enh-tag">'+items.length+' مرجعًا</span></div><div class="card"><strong>تنبيه بشأن دقة المكتبة</strong><p class="enh-help">هذه قائمة واسعة وليست حصرًا قانونيًا لجميع أنظمة المملكة أو نسخها السارية. لا تحتوي على النصوص الرسمية الكاملة، ولا يعني ظهور مرجع أنه ينطبق على كل منشأة. تحقّق من المصدر الرسمي والإصدار وتاريخ السريان قبل أي تقييم.</p><p class="enh-help">المراجع الموسومة «متاح للتجربة» تحتوي على ضوابط تمثيلية فقط. باقي المراجع فهرس تعريفي ولا تُنشئ تقييمات أو نسب امتثال وهمية.</p></div><div class="enh-toolbar section"><input id="catalogSearch" type="search" placeholder="ابحث عن نظام أو جهة أو معيار" value="'+esc(q)+'"><select id="catalogCategory">'+cats.map(x=>'<option '+(x===cat?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select></div><p class="muted">'+matches.length+' نتيجة</p><div class="frameworks">'+matches.map(x=>'<div class="card fw" style="cursor:default"><div class="row"><span class="pill">'+esc(x[4])+'</span><span class="enh-badge">'+esc(x[5])+'</span></div><h3 style="margin-top:12px">'+esc(x[1])+'</h3><p class="muted">'+esc(x[2])+'</p><p class="enh-help">'+esc(x[3])+'</p><div class="enh-actions">'+(x[6]?'<button class="btn alt" onclick="frameworkFilter=\''+x[6]+'\';go(\'controls\')">عرض الضوابط التجريبية</button>':'<span class="enh-demo-flag">فهرس فقط — المحتوى التفصيلي قيد الإعداد</span>')+'</div></div>').join('')+'</div>';root.querySelector('#catalogSearch').oninput=e=>{q=e.target.value;drawCatalog();const i=root.querySelector('#catalogSearch');i.focus();i.setSelectionRange(q.length,q.length)};root.querySelector('#catalogCategory').onchange=e=>{cat=e.target.value;drawCatalog()}}
+function drawCatalog(){const root=document.getElementById('libraries');if(!root)return;const matches=items.filter(x=>(cat==='الكل'||x[4]===cat)&&(!q||x.join(' ').toLowerCase().includes(q.toLowerCase())));root.innerHTML='<div class="enh-hero"><div><h2>المكتبة التنظيمية السعودية</h2><p>فهرس استكشافي للأنظمة واللوائح والضوابط والمعايير. انطباق المتطلبات يتحدد وفق نشاط المنشأة والجهة المشرفة.</p></div><span class="enh-tag">'+items.length+' مرجعًا</span></div><div class="card"><strong>تنبيه بشأن دقة المكتبة</strong><p class="enh-help">هذه قائمة واسعة وليست حصرًا قانونيًا لجميع أنظمة المملكة أو نسخها السارية. لا تحتوي على النصوص الرسمية الكاملة، ولا يعني ظهور مرجع أنه ينطبق على كل منشأة. تحقّق من المصدر الرسمي والإصدار وتاريخ السريان قبل أي تقييم.</p><p class="enh-help">المراجع الموسومة «متاح للتجربة» تحتوي على ضوابط تمثيلية فقط. باقي المراجع فهرس تعريفي ولا تُنشئ تقييمات أو نسب امتثال وهمية.</p></div><div class="enh-toolbar section"><input id="catalogSearch" type="search" placeholder="ابحث عن نظام أو جهة أو معيار" value="'+esc(q)+'"><select id="catalogCategory">'+cats.map(x=>'<option '+(x===cat?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select></div><p class="muted">'+matches.length+' نتيجة</p><div class="frameworks">'+matches.map(x=>'<div class="card fw" style="cursor:default"><div class="row"><span class="pill">'+esc(x[4])+'</span><span class="enh-badge">'+esc(x[5])+'</span></div><h3 style="margin-top:12px">'+esc(x[1])+'</h3><p class="muted">'+esc(x[2])+'</p><p class="enh-help">'+esc(x[3])+'</p><div class="enh-actions">'+(x[6]?'<button class="btn alt" onclick="frameworkFilter=\''+x[6]+'\';go(\'controls\')">عرض الضوابط التجريبية</button>':'<span class="enh-demo-flag">فهرس فقط — المحتوى التفصيلي قيد الإعداد</span>')+(guidance[x[0]]?'<details style="margin-top:12px"><summary>محاور فحص استرشادية (ليست مواد نظامية)</summary><ul>'+guidance[x[0]].map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></details>':'')+'</div></div>').join('')+'</div>';root.querySelector('#catalogSearch').oninput=e=>{q=e.target.value;drawCatalog();const i=root.querySelector('#catalogSearch');i.focus();i.setSelectionRange(q.length,q.length)};root.querySelector('#catalogCategory').onchange=e=>{cat=e.target.value;drawCatalog()}}
 drawCatalog();
 })();
