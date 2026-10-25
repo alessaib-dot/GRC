@@ -28,6 +28,6 @@ for(const [label,count,dest] of items){const b=document.createElement('button');
 }
 const oldToggle=toggleLanguage;toggleLanguage=function(){oldToggle();update()};
 window.addEventListener('imtithal:grc-update',update);window.addEventListener('storage',update);
-const commandTab=document.querySelector('[data-tab="command"]');if(commandTab)commandTab.addEventListener('click',update);
+document.querySelectorAll('[data-tab="command"]').forEach(tab=>tab.addEventListener('click',update));
 update();
 })();
