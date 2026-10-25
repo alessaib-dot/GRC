@@ -1,0 +1,16 @@
+/* Mobile navigation and accessibility refinements for the GRC design preview. */
+@media (max-width:700px){
+.bottom{justify-content:flex-start!important;gap:4px;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:max(8px,env(safe-area-inset-bottom));}
+.bottom button{flex:0 0 auto;white-space:nowrap;min-height:44px;padding:10px 12px;}
+.main{padding-bottom:calc(105px + env(safe-area-inset-bottom));}
+.top .actions{width:100%;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.top .actions>*{flex:0 0 auto;}
+.item{min-width:0;}
+.item>div{min-width:0;overflow-wrap:anywhere;}
+.command-premium .command-hero .actions{flex-wrap:wrap;}
+.command-premium .command-hero .actions button{min-height:44px;}
+}
+.command-link-line{display:flex;flex-wrap:wrap;gap:5px;padding:8px 0;border-bottom:1px solid #285066;font-size:13px;overflow-wrap:anywhere}
+.command-link-line:last-child{border-bottom:0}
+body[data-theme="light"] .command-link-line{border-color:#d9e8ef}
+@media (max-width:380px){.command-shortcut strong{font-size:12px}.command-shortcut small{font-size:10px}}
