@@ -6,7 +6,7 @@ const tr=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key)||'null')??fallback}catch(e){return fallback}}
 let assessments=read(KEY,{});if(!assessments||typeof assessments!=='object'||Array.isArray(assessments))assessments={};
-function save(){try{localStorage.setItem(KEY,JSON.stringify(assessments))}catch(e){alert(tr('تعذر حفظ التقييم','Could not save assessment'))}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(assessments));window.dispatchEvent(new Event('imtithal:grc-update'))}catch(e){alert(tr('تعذر حفظ التقييم','Could not save assessment'))}}
 function risks(){const x=read(MODULES,{});return Array.isArray(x.risk)?x.risk:[]}
 function level(n){return n>=15?tr('مرتفع','High'):n>=6?tr('متوسط','Medium'):tr('منخفض','Low')}
 function options(v){return [1,2,3,4,5].map(n=>'<option value="'+n+'"'+(Number(v)===n?' selected':'')+'>'+n+'</option>').join('')}
