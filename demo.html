@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GRC | تجريبي</title><style>html,body{height:100%;margin:0;background:#071321}iframe{width:100%;height:100%;border:0}</style></head>
+<body><iframe id="grc" title="GRC | تجريبي" src="./design-preview.html?v=demo2"></iframe>
+<script>
+(function(){
+var frame=document.getElementById('grc');
+frame.addEventListener('load',function(){
+var doc=frame.contentDocument;if(!doc)return;
+doc.title='GRC | تجريبي';
+var brand=doc.querySelector('.brand');if(brand)brand.textContent='GRC';
+var script=doc.createElement('script');
+script.src='./grc-investor-demo.js?v=2';script.onload=function(){
+var button=[].slice.call(doc.querySelectorAll('button')).find(function(x){return /تحميل بيانات المستثمر التجريبية|Load investor demo data/.test(x.textContent)});
+if(button)button.textContent=doc.documentElement.lang==='en'?'Load demo data':'تحميل بيانات تجريبية';
+var pill=[].slice.call(doc.querySelectorAll('.pill')).find(function(x){return /نموذج استثماري تجريبي|Investor demo prototype/.test(x.textContent)});
+if(pill)pill.textContent=doc.documentElement.lang==='en'?'GRC · Demo':'GRC · تجريبي';
+var observer=new MutationObserver(function(){
+if(pill&&/نموذج استثماري تجريبي|Investor demo prototype/.test(pill.textContent))pill.textContent=doc.documentElement.lang==='en'?'GRC · Demo':'GRC · تجريبي';
+if(button&&/تحميل بيانات المستثمر التجريبية|Load investor demo data/.test(button.textContent))button.textContent=doc.documentElement.lang==='en'?'Load demo data':'تحميل بيانات تجريبية';
+});observer.observe(doc.body,{subtree:true,childList:true,characterData:true});
+};doc.body.appendChild(script);
+});
+})();
+</script></body></html>
