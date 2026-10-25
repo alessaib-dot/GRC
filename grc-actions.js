@@ -6,9 +6,10 @@ const tr=(ar,en)=>document.documentElement.lang==='en'?en:ar;
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
 function read(k,fallback){try{const x=JSON.parse(localStorage.getItem(k)||'null');return x??fallback}catch(e){return fallback}}
 let actions=read(KEY,[]);if(!Array.isArray(actions))actions=[];
-function save(){try{localStorage.setItem(KEY,JSON.stringify(actions))}catch(e){alert(tr('تعذر حفظ البيانات','Could not save data'))}}
-function sourceNodes(){const modules=read(MODULES,{}),demo=read('imtithal_demo_v1',{}),nodes=[];
+function save(){try{localStorage.setItem(KEY,JSON.stringify(actions));window.dispatchEvent(new Event('imtithal:grc-update'))}catch(e){alert(tr('تعذر حفظ البيانات','Could not save data'))}}
+function sourceNodes(){const modules=read(MODULES,{}),demo=read('imtithal_demo_v1',{}),internal=read('imtithal_grc_policy_controls_v1',{}),nodes=[];
 for(const [k,ar,en] of [['risk','المخاطر','Risks'],['governance','الحوكمة','Governance'],['audit','التدقيق','Audit']])for(const x of (Array.isArray(modules[k])?modules[k]:[]))nodes.push({key:k+':'+x.id,label:x.title||'—',group:tr(ar,en)});
+for(const [k,ar,en] of [['policy','السياسات','Policies'],['control','الضوابط الداخلية','Internal Controls']])for(const x of (Array.isArray(internal[k])?internal[k]:[]))nodes.push({key:k+':'+x.id,label:x.title||'—',group:tr(ar,en)});
 for(const [k,ar,en] of [['controls','الالتزامات والضوابط','Obligations & Controls'],['tasks','الإجراءات القديمة','Existing actions']])for(const [i,x] of (Array.isArray(demo[k])?demo[k]:[]).entries())nodes.push({key:k+':'+String(x.id??x.code??i),label:x.title||x.name||x.code||'—',group:tr(ar,en)});
 return nodes}
 function dueStatus(x){if(x.status==='done')return 'done';if(!x.due)return 'none';const today=new Date();today.setHours(0,0,0,0);const date=new Date(x.due+'T00:00:00');return date<today?'late':(date-today<=7*86400000?'soon':'future')}
