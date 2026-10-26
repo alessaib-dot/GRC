@@ -1,0 +1,22 @@
+(function(){
+'use strict';
+const info={
+command:['ابدأ من هنا','هذه لوحة المتابعة. اختر قسمًا من القائمة أو اضغط تحميل بيانات تجريبية لتشاهد أمثلة قابلة للتعديل.','Start here','This dashboard summarizes your records. Open a section or load editable demo data.'],
+executive:['التقرير التنفيذي','ملخص لمتابعة الأعمال والمخاطر. الأرقام المعروضة تعتمد على السجلات الموجودة في هذا المتصفح.','Executive overview','A summary of work and risks based on the records in this browser.'],
+assistant:['المساعد التجريبي','هذه واجهة توضيحية وليست مساعد ذكاء اصطناعي متصلًا بخدمة فعلية.','Demo assistant','This is an illustrative interface, not a live AI service.'],
+workspace:['مساحة العمل','هنا تبدأ المهام اليومية. جرّب إضافة سجل ثم راقب ظهوره في اللوحات المرتبطة.','Workspace','Start daily tasks here. Add a record and see it reflected in related views.'],
+governance:['سجل الحوكمة','سجّل القرارات، وحدد المسؤول والموعد، وتابع حالة كل قرار. افتح سجلًا تجريبيًا لتفهم طريقة الاستخدام.','Governance register','Record decisions, owners, deadlines and statuses. Explore a demo record.'],
+risk:['سجل المخاطر','أضف وصف الخطر ومالكه وأثره، ثم انتقل إلى تقييم المخاطر لتقدير الاحتمال والتأثير.','Risk register','Add a risk, its owner and impact, then assess likelihood and impact.'],
+audit:['التدقيق الداخلي','دوّن ملاحظات التدقيق، المسؤول عن المعالجة والموعد، ثم تابع حالة الإغلاق.','Internal audit','Log audit findings, remediation owners and due dates, then track closure.'],
+compliance:['الامتثال','تابع المتطلبات والضوابط والأدلة. البيانات المعروضة أمثلة تعليمية وليست تقييم امتثال رسميًا.','Compliance','Track obligations, controls and evidence. Examples are not an official compliance assessment.'],
+'policy-controls':['السياسات والضوابط','تجد هنا سياسات وضوابط جاهزة كنقطة بداية. راجع كل سياسة وعدّلها قبل أي اعتماد فعلي.','Policies and controls','Start with draft policies and controls. Review and adapt before real approval.'],
+relationships:['ربط السجلات','اربط الخطر بالضابط أو بملاحظة التدقيق لتعرف العلاقة بين أعمال GRC.','Record relationships','Connect risks to controls and audit findings to understand their relationships.'],
+actions:['الإجراءات التصحيحية','أنشئ إجراء لمعالجة خطر أو ملاحظة، وحدد المسؤول والموعد وحالة التنفيذ.','Corrective actions','Create a remediation action with an owner, due date and progress status.']
+};
+const ar=()=>document.documentElement.lang!=='en';
+const style=document.createElement('style');style.textContent='.grc-help{margin:12px 0 18px;padding:17px 20px;border:1px solid #327d84;border-radius:15px;background:var(--card-bg,#102c3c);color:inherit;line-height:1.8}.grc-help strong{display:block;font-size:17px;margin-bottom:3px}.grc-help p{margin:0;color:inherit;opacity:.83}.grc-help small{display:block;margin-top:8px;opacity:.65}.grc-help button{margin-top:10px;border:1px solid #4aa99f;border-radius:9px;background:transparent;color:inherit;padding:8px 12px;cursor:pointer}';document.head.appendChild(style);
+const help=document.createElement('aside');help.className='grc-help';help.setAttribute('aria-live','polite');const main=document.querySelector('.main');const top=main&&main.querySelector('.top');if(!main||!top)return;top.insertAdjacentElement('afterend',help);
+function current(){const panel=document.querySelector('.panel.active');return panel?panel.id:'command'}
+function render(){const id=current(),d=info[id]||[ar()?'كيف تستخدم هذا القسم؟':'How to use this section?',ar()?'استخدم النماذج الموجودة لإضافة بياناتك ومتابعتها.':'Use the forms to add and manage records.','How to use this section?','Use the forms to add and manage records.'];const title=ar()?d[0]:d[2],body=ar()?d[1]:d[3];help.replaceChildren();const h=document.createElement('strong');h.textContent='ⓘ '+title;const p=document.createElement('p');p.textContent=body;const note=document.createElement('small');note.textContent=ar()?'بيئة تجريبية: لا تستخدم بيانات حساسة أو حقيقية.':'Demo environment: do not enter sensitive or real data.';help.append(h,p,note);if(id==='command'){const b=document.createElement('button');b.textContent=ar()?'ابدأ باستعراض سجل المخاطر':'Explore risk register';b.onclick=()=>{const nav=document.querySelector('[data-tab="risk"]');if(nav)nav.click()};help.appendChild(b)}}
+const observer=new MutationObserver(render);observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});document.querySelectorAll('.panel').forEach(x=>observer.observe(x,{attributes:true,attributeFilter:['class']}));render();
+})();
