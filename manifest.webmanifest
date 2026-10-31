@@ -1,0 +1,21 @@
+{
+  "name": "GRC | امتثال",
+  "short_name": "GRC",
+  "description": "تطبيق تجريبي للحوكمة والمخاطر والامتثال",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "/GRC/grc-app.html",
+  "start_url": "./grc-app.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071321",
+  "theme_color": "#071321",
+  "icons": [
+    {
+      "src": "./grc-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
