@@ -1,11 +1,20 @@
-# GRC iPhone preview (Expo)
+# GRC iPhone app (Expo Go)
 
-This is an Expo/React Native **WebView shell** for the existing GRC site, not a native rewrite. Changes deployed to https://alessaib-dot.github.io/GRC/ appear in the app after reload (subject to caching). It requires internet and the existing site's browser-local data is not a shared database.
+The Expo project targets SDK 58. It is a React Native WebView app showing GRC, not a standalone App Store build.
 
-## Windows setup
-1. Install Node.js LTS.
-2. Download this repository, open a terminal in `ios-expo`.
-3. Run `npm install` then `npx expo start --tunnel` (tunnel may require an extra dependency and an Expo account).
-4. Install **Expo Go** on the iPhone, scan the QR code and open the project.
+## Start in GitHub Codespaces (including from an iPhone)
 
-For a local network, use `npx expo start` and ensure phone and PC are on the same Wi-Fi. This runs inside Expo Go and is **not** a standalone signed iOS application. App Store publication or standalone distribution requires separate Apple signing/distribution arrangements. Validate dependencies with `npx expo install --fix` if Expo reports SDK mismatches.
+Open a **single** Codespaces terminal, stop any older Expo process, and run these commands **one at a time**:
+
+```sh
+cd /workspaces/GRC
+ git pull
+cd ios-expo
+npm install
+npx expo install --fix
+npx expo start --tunnel --clear
+```
+
+Keep the terminal running. Open the resulting `exp://` URL with Expo Go, not in Safari; the tunnel can stop when Codespaces sleeps. If Metro says port 8081 is already in use, stop the old Expo process before starting another. SDK and package compatibility still need to be verified by a real device launch.
+
+The app requires internet because it embeds https://alessaib-dot.github.io/GRC/. Data in the existing web prototype is browser-local, not synchronized with a secure backend.
