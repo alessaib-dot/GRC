@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "GRC",
+    "slug": "grc-ios",
+    "scheme": "grc",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.grc.preview"
+    },
+    "plugins": []
+  }
+}
