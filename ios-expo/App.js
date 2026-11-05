@@ -1,9 +1,77 @@
-import React,{useRef,useState} from 'react';
-import {View,Text,ActivityIndicator,Pressable,StyleSheet,BackHandler,Platform,StatusBar} from 'react-native';
-import {WebView} from 'react-native-webview';
-import {SafeAreaProvider,SafeAreaView} from 'react-native-safe-area-context';
-const URL='https://alessaib-dot.github.io/GRC/';
-export default function App(){const web=useRef(null);const [loading,setLoading]=useState(true);const [failed,setFailed]=useState(false);const [canGoBack,setCanGoBack]=useState(false);
-React.useEffect(()=>{if(Platform.OS!=='android')return;const listener=BackHandler.addEventListener('hardwareBackPress',()=>{if(canGoBack){web.current?.goBack();return true}return false});return()=>listener.remove()},[canGoBack]);
-return <SafeAreaProvider><SafeAreaView style={styles.root} edges={['top','bottom']}><StatusBar barStyle="light-content" backgroundColor="#102638"/><WebView ref={web} source={{uri:URL}} style={styles.web} originWhitelist={['https://*']} javaScriptEnabled domStorageEnabled sharedCookiesEnabled startInLoadingState onLoadStart={()=>{setLoading(true);setFailed(false)}} onLoadEnd={()=>setLoading(false)} onError={()=>{setLoading(false);setFailed(true)}} onHttpError={e=>{if(e.nativeEvent.statusCode>=400){setFailed(true);setLoading(false)}}} onNavigationStateChange={s=>setCanGoBack(s.canGoBack)} renderLoading={()=>null}/>{loading&&!failed&&<View style={styles.overlay}><ActivityIndicator size="large" color="#4be1ce"/><Text style={styles.text}>جاري فتح GRC…</Text></View>}{failed&&<View style={styles.overlay}><Text style={styles.text}>تعذر الاتصال بموقع GRC. تحقق من الإنترنت وحاول مرة أخرى.</Text><Pressable accessibilityRole="button" onPress={()=>{setFailed(false);web.current?.reload()}} style={styles.button}><Text style={styles.buttonText}>إعادة المحاولة</Text></Pressable></View>}</SafeAreaView></SafeAreaProvider>}
-const styles=StyleSheet.create({root:{flex:1,backgroundColor:'#102638'},web:{flex:1,backgroundColor:'#102638'},overlay:{...StyleSheet.absoluteFillObject,backgroundColor:'#102638',alignItems:'center',justifyContent:'center',padding:24},text:{color:'#fff',textAlign:'center',marginTop:18,fontSize:16},button:{marginTop:22,backgroundColor:'#4be1ce',paddingHorizontal:24,paddingVertical:12,borderRadius:10},buttonText:{color:'#102638',fontWeight:'bold'}});
+import React, { useState } from 'react';
+import { ActivityIndicator, Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { WebView } from 'react-native-webview';
+
+const SITE = 'https://alessaib-dot.github.io/GRC/';
+
+export default function App() {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  return (
+    <SafeAreaView style={styles.root}>
+      <StatusBar barStyle="light-content" backgroundColor="#102638" />
+      {!open ? (
+        <View style={styles.welcome}>
+          <Text style={styles.logo}>GRC</Text>
+          <Text style={styles.title}>منصة الحوكمة والمخاطر والامتثال</Text>
+          <Text style={styles.description}>تجربة تطبيق الآيفون المتصل بنسخة الموقع الحالية</Text>
+          <Pressable accessibilityRole="button" style={styles.button} onPress={() => { setError(''); setOpen(true); }}>
+            <Text style={styles.buttonText}>فتح منصة GRC</Text>
+          </Pressable>
+        </View>
+      ) : (
+        <View style={styles.content}>
+          <View style={styles.toolbar}>
+            <Pressable accessibilityRole="button" onPress={() => { setOpen(false); setLoading(false); setError(''); }} style={styles.back}>
+              <Text style={styles.backText}>العودة</Text>
+            </Pressable>
+            <Text style={styles.heading}>GRC</Text>
+          </View>
+          {error ? (
+            <View style={styles.welcome}>
+              <Text style={styles.description}>{error}</Text>
+              <Pressable style={styles.button} onPress={() => { setError(''); setOpen(false); }}>
+                <Text style={styles.buttonText}>العودة والمحاولة مجددًا</Text>
+              </Pressable>
+            </View>
+          ) : (
+            <WebView
+              source={{ uri: SITE }}
+              style={styles.web}
+              javaScriptEnabled
+              domStorageEnabled
+              startInLoadingState
+              onLoadStart={() => setLoading(true)}
+              onLoadEnd={() => setLoading(false)}
+              onError={() => { setLoading(false); setError('تعذر فتح موقع GRC. تحقق من اتصال الإنترنت.'); }}
+              onHttpError={({ nativeEvent }) => {
+                if (nativeEvent.statusCode >= 400) {
+                  setLoading(false);
+                  setError('تعذر تحميل GRC. رمز الاستجابة: ' + nativeEvent.statusCode);
+                }
+              }}
+            />
+          )}
+          {loading && !error ? <View style={styles.loading}><ActivityIndicator color="#4be1ce" /></View> : null}
+        </View>
+      )}
+    </SafeAreaView>
+  );
+}
+const styles = StyleSheet.create({
+  root: { flex: 1, backgroundColor: '#102638' },
+  welcome: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 26 },
+  logo: { fontSize: 46, fontWeight: '800', color: '#4be1ce', marginBottom: 16 },
+  title: { fontSize: 21, color: '#fff', fontWeight: '700', textAlign: 'center' },
+  description: { fontSize: 15, color: '#c4d6de', textAlign: 'center', marginTop: 15, lineHeight: 24 },
+  button: { backgroundColor: '#4be1ce', borderRadius: 12, paddingHorizontal: 26, paddingVertical: 16, marginTop: 28 },
+  buttonText: { color: '#102638', fontWeight: '800', fontSize: 16 },
+  content: { flex: 1 },
+  toolbar: { minHeight: 50, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 18 },
+  back: { padding: 10 },
+  backText: { color: '#4be1ce', fontSize: 15 },
+  heading: { color: '#fff', fontSize: 18, fontWeight: '700' },
+  web: { flex: 1, backgroundColor: '#fff' },
+  loading: { position: 'absolute', top: 65, right: 18 },
+});
