@@ -19,6 +19,7 @@ function nodes(){
   const records=Array.isArray(demo[key])?demo[key]:[];
   records.forEach((x,i)=>all.push({key:key+':'+String(x.id??x.code??i),group:key,label:x.title||x.name||x.description||x.code||('#'+(i+1)),groupLabel:t(ar,en)}));
  }
+ for(const x of (Array.isArray(load('grc_compliance_demo_v1'))?load('grc_compliance_demo_v1'):[]))all.push({key:'compliance:'+x.id,group:'compliance',label:x.titleAr||x.titleEn||'—',groupLabel:t('متطلبات الامتثال','Compliance obligations')});
  return all;
 }
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(links))}catch(e){alert(t('تعذر حفظ الروابط','Could not save links'))}}
