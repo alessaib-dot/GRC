@@ -41,6 +41,7 @@ export default function App() {
               style={styles.web}
               javaScriptEnabled
               domStorageEnabled
+              pullToRefreshEnabled
               startInLoadingState
               onLoadStart={() => setLoading(true)}
               onLoadEnd={() => setLoading(false)}
