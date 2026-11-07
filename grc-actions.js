@@ -11,6 +11,7 @@ function sourceNodes(){const modules=read(MODULES,{}),demo=read('imtithal_demo_v
 for(const [k,ar,en] of [['risk','المخاطر','Risks'],['governance','الحوكمة','Governance'],['audit','التدقيق','Audit']])for(const x of (Array.isArray(modules[k])?modules[k]:[]))nodes.push({key:k+':'+x.id,label:x.title||'—',group:tr(ar,en)});
 for(const [k,ar,en] of [['policy','السياسات','Policies'],['control','الضوابط الداخلية','Internal Controls']])for(const x of (Array.isArray(internal[k])?internal[k]:[]))nodes.push({key:k+':'+x.id,label:x.title||'—',group:tr(ar,en)});
 for(const [k,ar,en] of [['controls','الالتزامات والضوابط','Obligations & Controls'],['tasks','الإجراءات القديمة','Existing actions']])for(const [i,x] of (Array.isArray(demo[k])?demo[k]:[]).entries())nodes.push({key:k+':'+String(x.id??x.code??i),label:x.title||x.name||x.code||'—',group:tr(ar,en)});
+for(const x of (Array.isArray(read('grc_compliance_demo_v1',[]))?read('grc_compliance_demo_v1',[]):[]))nodes.push({key:'compliance:'+x.id,label:x.titleAr||x.titleEn||'—',group:tr('متطلبات الامتثال','Compliance obligations')});
 return nodes}
 function dueStatus(x){if(x.status==='done')return 'done';if(!x.due)return 'none';const today=new Date();today.setHours(0,0,0,0);const date=new Date(x.due+'T00:00:00');return date<today?'late':(date-today<=7*86400000?'soon':'future')}
 function summary(){return {total:actions.length,open:actions.filter(x=>x.status!=='done').length,late:actions.filter(x=>dueStatus(x)==='late').length,soon:actions.filter(x=>dueStatus(x)==='soon').length}}
