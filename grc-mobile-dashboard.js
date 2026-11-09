@@ -33,8 +33,8 @@ const style=document.createElement('style');style.textContent=`
 #command #grc-start .grc-start-card{min-height:68px!important;padding:12px!important}
 #command #grc-start .grc-start-card span{display:none!important}
 #command #grc-start .grc-start-card strong{font-size:12px!important;margin:0!important}
-#command>.split{order:5!important}
-#command .grc-help{display:none!important}
+#command>.split{order:5!important;display:block!important}\n#command>.split>.card{margin-bottom:10px!important}\n#command>.split>.card h3{font-size:16px!important;margin:0 0 10px!important}\n#command>.split>.card .placeholder{padding:12px!important;font-size:12px!important;line-height:1.6!important}\n#command>.split>.card .btn{min-height:42px!important;padding:9px 12px!important;font-size:12px!important}\n#command #priorities .item{padding:9px 0!important;gap:7px!important}\n#command #priorities .item strong{font-size:12px!important}\n#command #priorities .item p{font-size:11px!important}\n#command #priorities .item .tag{font-size:11px!important}\n#command .command-pulse-row{min-height:44px!important;padding:10px 4px!important;font-size:12px!important}\n#command .command-shortcuts{gap:8px!important}\n#command .command-shortcut{min-height:75px!important;padding:10px!important}\n#command .command-shortcut strong{font-size:12px!important}\n#command .command-shortcut small{font-size:10px!important}\n#command #commandMetrics>.card{padding:12px!important}\n#command #commandMetrics .metric{font-size:23px!important}
+#command .grc-help{display:none!important}\n#command>.split>.card:nth-child(2) .placeholder{max-height:85px!important;overflow:hidden!important}\n#command>.split>.card:nth-child(2) .btn{margin-top:9px!important}
 #command .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 #command .card{overflow-wrap:anywhere}
 #grc-mobile-sheet{max-height:85dvh!important}
